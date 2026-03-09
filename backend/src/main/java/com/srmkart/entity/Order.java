@@ -1,6 +1,7 @@
 package com.srmkart.entity;
 
 import jakarta.persistence.*;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class Order {
 
     private Date orderDate;
 
-    private Double totalAmount;
+    private BigDecimal totalAmount;
 
     private String status; // e.g., PENDING, COMPLETED, CANCELLED
 
@@ -34,8 +35,8 @@ public class Order {
     public void setUser(User user) { this.user = user; }
     public Date getOrderDate() { return orderDate; }
     public void setOrderDate(Date orderDate) { this.orderDate = orderDate; }
-    public Double getTotalAmount() { return totalAmount; }
-    public void setTotalAmount(Double totalAmount) { this.totalAmount = totalAmount; }
+    public BigDecimal getTotalAmount() { return totalAmount; }
+    public void setTotalAmount(BigDecimal totalAmount) { this.totalAmount = totalAmount; }
     public String getStatus() { return status; }
     public void setStatus(String status) { this.status = status; }
     public String getShippingAddress() { return shippingAddress; }
