@@ -6,6 +6,49 @@ import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
 import './ProductDetails.css';
 
+const PLACEHOLDER_PRODUCTS = [
+  {
+    id: 1,
+    title: "Apple MacBook Pro M2 14-inch (2023) - Silver",
+    description: "Barely used MacBook Pro. Perfect for coding and design work.\n\nSpecs:\n- Apple M2 Pro chip\n- 16GB Unified Memory\n- 512GB SSD Storage\n- 14-inch Liquid Retina XDR display",
+    price: 95000,
+    condition: "USED",
+    category: { name: "Electronics" },
+    seller: { name: "Aditya S." },
+    images: [{ url: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" }]
+  },
+  {
+    id: 2,
+    title: "Sony WH-1000XM5 Wireless Noise Canceling Headphones",
+    description: "Brand new, sealed in box. Won it in a hackathon.\n\nIndustry-leading noise cancellation with multiple microphones. Up to 30-hour battery life with quick charging.",
+    price: 24000,
+    condition: "NEW",
+    category: { name: "Electronics" },
+    seller: { name: "Priya M." },
+    images: [{ url: "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" }]
+  },
+  {
+    id: 3,
+    title: "Introduction to Algorithms, 4th Edition (CLRS)",
+    description: "Standard textbook for Data Structures. Good condition. No highlights or markings inside the book.",
+    price: 850,
+    condition: "USED",
+    category: { name: "Books" },
+    seller: { name: "Rahul V." },
+    images: [{ url: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" }]
+  },
+  {
+    id: 4,
+    title: "Ergonomic Office Chair - Mesh Back",
+    description: "Selling because I am moving out of the hostel. Very comfortable for long hours of study or gaming.\n\nFeatures adjustable lumbar support and armrests.",
+    price: 3200,
+    condition: "USED",
+    category: { name: "Furniture" },
+    seller: { name: "Sneha K." },
+    images: [{ url: "https://images.unsplash.com/photo-1505843490538-5133c6c7d0e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" }]
+  }
+];
+
 export default function ProductDetails() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
@@ -20,7 +63,9 @@ export default function ProductDetails() {
         const { data } = await axios.get(`http://localhost:8080/api/products/${id}`);
         setProduct(data);
       } catch (error) {
-        console.error('Error fetching product details', error);
+        console.error('Error fetching product details, looking in placeholders', error);
+        const placeholder = PLACEHOLDER_PRODUCTS.find(p => p.id === parseInt(id));
+        setProduct(placeholder || null);
       } finally {
         setLoading(false);
       }

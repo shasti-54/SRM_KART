@@ -1,0 +1,137 @@
+.checkout-page {
+  padding: 2rem 0 4rem;
+}
+
+.checkout-layout {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 992px) {
+  .checkout-layout {
+    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
+
+.checkout-form-section {
+  padding: 2rem;
+}
+
+.checkout-form-section h2 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.checkout-summary {
+  padding: 1.5rem;
+  position: sticky;
+  top: 100px;
+}
+
+.checkout-summary h2 {
+  margin-top: 0;
+  font-size: 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 1rem;
+}
+
+.item-thumbnail {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.summary-item.border-b {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.border-glass {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Payment Mockup Styles */
+.payment-card-mockup {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+}
+
+.payment-option {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--accent-light);
+  border-radius: var(--radius-sm);
+  background: rgba(212, 175, 55, 0.05);
+  cursor: pointer;
+}
+
+.payment-option.selected {
+  border-color: var(--accent-color);
+  background: rgba(212, 175, 55, 0.1);
+}
+
+.radio-indicator {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--accent-color);
+  margin-left: auto;
+  position: relative;
+}
+
+.radio-indicator::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+}
+
+.submit-order {
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Success State */
+.success-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.success-icon {
+  color: var(--success-color, #2ecc71);
+  margin: 0 auto 1.5rem;
+}
+
+.success-state h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--success-color, #2ecc71);
+}
+
+.error-message {
+  background: rgba(231, 76, 60, 0.1);
+  border: 1px solid rgba(231, 76, 60, 0.3);
+  color: #e74c3c;
+  padding: 1rem;
+  border-radius: var(--radius-sm);
+  margin-bottom: 1.5rem;
+}
