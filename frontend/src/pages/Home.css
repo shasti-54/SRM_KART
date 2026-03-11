@@ -3,7 +3,7 @@
 }
 
 .hero-section {
-  background: linear-gradient(135deg, rgba(79, 70, 229, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(255, 215, 0, 0.05) 100%);
   padding: 6rem 0;
   text-align: center;
   margin-bottom: 4rem;
@@ -115,7 +115,7 @@
 .spinner {
   width: 40px;
   height: 40px;
-  border: 3px solid rgba(79, 70, 229, 0.2);
+  border: 3px solid rgba(212, 175, 55, 0.2);
   border-top-color: var(--primary);
   border-radius: 50%;
   animation: spin 1s infinite linear;
