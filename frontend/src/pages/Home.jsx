@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from '../api';
 import ProductCard from '../components/ProductCard';
 import { Search } from 'lucide-react';
 import './Home.css';
@@ -54,7 +54,7 @@ export default function Home() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const { data } = await axios.get('http://localhost:8080/api/products');
+        const { data } = await api.get('/products');
         setProducts(data);
       } catch (error) {
         console.error('Error fetching products, using placeholders', error);

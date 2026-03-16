@@ -3,7 +3,7 @@ import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate, Link } from 'react-router-dom';
 import { CheckCircle, Truck, CreditCard, ShieldCheck } from 'lucide-react';
-import axios from 'axios';
+import api from '../api';
 import './Checkout.css';
 
 export default function Checkout() {
@@ -57,11 +57,9 @@ export default function Checkout() {
         quantity: item.quantity
       }));
 
-      await axios.post('http://localhost:8080/api/orders', {
+      await api.post('/orders', {
         shippingAddress: address,
         items: orderItems
-      }, {
-        headers: { Authorization: `Bearer ${token}` }
       });
 
       await clearCart();

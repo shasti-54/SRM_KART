@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from '../api';
 import { useAuth } from '../context/AuthContext';
 import { Link } from 'react-router-dom';
 import { Package, Clock, ShoppingBag } from 'lucide-react';
@@ -13,9 +13,7 @@ export default function Orders() {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const { data } = await axios.get('http://localhost:8080/api/orders', {
-          headers: { Authorization: `Bearer ${token}` }
-        });
+        const { data } = await api.get('/orders');
         setOrders(data);
       } catch (error) {
         console.error('Failed to fetch orders:', error);

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import axios from 'axios';
+import api from '../api';
 import { ShoppingCart, ArrowLeft, Info } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
@@ -60,7 +60,7 @@ export default function ProductDetails() {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const { data } = await axios.get(`http://localhost:8080/api/products/${id}`);
+        const { data } = await api.get(`/products/${id}`);
         setProduct(data);
       } catch (error) {
         console.error('Error fetching product details, looking in placeholders', error);
